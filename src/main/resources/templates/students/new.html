@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register New Student</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Container for the form */
+        form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form header */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Form inputs and selects */
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        /* Input focus */
+        input:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Submit button */
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+          /* Page container */
+        nav, ul {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+        }
+
+        /* Navigation header */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        /* Navigation items */
+        nav ul {
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        /* Links */
+        nav a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/students/list}">List Students</a></li>
+        <li><a th:href="@{/students/new}">Register New Student</a></li>
+        <li><a th:href="@{/students/search}">Search Students</a></li>
+    </ul>
+</nav>
+<h1>Register New Student</h1>
+<form th:action="@{/students/save}" th:object="${student}" method="post">
+    <label>Student Number: <input type="text" th:field="*{studentNumber}" required/></label><br/>
+    <label>First Name: <input type="text" th:field="*{firstName}" required/></label><br/>
+    <label>Middle Name: <input type="text" th:field="*{middleName}"/></label><br/>
+    <label>Last Name: <input type="text" th:field="*{lastName}" required/></label><br/>
+    <label>CGPA: <input type="number" step="0.01" th:field="*{cgpa}"/></label><br/>
+    <label>Enrollment Date: <input type="date" th:field="*{enrollmentDate}" required/></label><br/>
+    <label>Is International:
+        <select th:field="*{isInternational}" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </label><br/>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

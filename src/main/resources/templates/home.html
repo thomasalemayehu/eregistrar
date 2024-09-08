@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>eRegistrar</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Page container */
+        nav, ul {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+        }
+
+        /* Navigation header */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        /* Navigation items */
+        nav ul {
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        /* Links */
+        nav a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Welcome to eRegistrar</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/students/list}">List Students</a></li>
+        <li><a th:href="@{/students/new}">Register New Student</a></li>
+        <li><a th:href="@{/students/search}">Search Students</a></li>
+    </ul>
+</nav>
+</body>
+</html>
